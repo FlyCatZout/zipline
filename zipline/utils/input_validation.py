@@ -209,13 +209,13 @@ def expect_dtypes(**named):
 
     Usage
     -----
-    >>> from numpy import dtype, arange
-    >>> @expect_dtypes(x=dtype(int))
+    >>> from numpy import dtype, arange, int64
+    >>> @expect_dtypes(x=dtype(int64))
     ... def foo(x, y):
     ...    return x, y
     ...
-    >>> foo(arange(3), 'foo')
-    (array([0, 1, 2]), 'foo')
+    >>> foo(arange(3, dtype=int64), 'foo')
+    (array([0, 1, 2], dtype=int64), 'foo')
     >>> foo(arange(3, dtype=float), 'foo')  # doctest: +NORMALIZE_WHITESPACE
     ...                                     # doctest: +ELLIPSIS
     Traceback (most recent call last):
